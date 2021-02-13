@@ -9,7 +9,7 @@ package PagoMedicos;
  *
  * @author Ricardo
  */
-public abstract class Persona {
+public abstract class Persona extends Entidad {
     
     private String name;
     private String lastName;
@@ -31,7 +31,7 @@ public abstract class Persona {
     }
     
     public Persona (String name, String lastName){
-        super();
+        //super();
         this.name = name;
         this.lastName = lastName;
     }

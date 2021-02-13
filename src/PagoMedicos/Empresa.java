@@ -9,6 +9,29 @@ package PagoMedicos;
  *
  * @author Ricardo
  */
-public class Empresa {
+public class Empresa extends Entidad {
     
+    private String tipo;
+    private String razonSocial;
+    private String ruc;
+    
+    public Empresa (String razonSocial, String tipo, String ruc){
+        super();
+        this.razonSocial = razonSocial;
+        this.tipo = tipo;
+        this.ruc = ruc;
+    }
+
+    @Override
+    public double pago() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        double total = 0;
+        if(tipo == "A"){
+            total = 5000;
+        }
+        if(tipo == "B"){
+            total = 2200;
+        }
+        return total;
+    }
 }

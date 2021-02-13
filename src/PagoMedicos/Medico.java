@@ -23,7 +23,33 @@ public class Medico extends Persona {
         this.horas = horas;
     }
 
-    @Override
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public double getTarifa() {
+        return tarifa;
+    }
+
+    public int getHoras() {
+        return horas;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public void setTarifa(double tarifa) {
+        this.tarifa = tarifa;
+    }
+
+    public void setHoras(int horas) {
+        this.horas = horas;
+    }
+
+    
+    
+    //@Override
     public double pago() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         double total = 0;

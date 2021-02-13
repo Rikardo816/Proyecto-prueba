@@ -9,6 +9,11 @@ package PagoMedicos;
  *
  * @author Ricardo
  */
-public class Entidad {
+public abstract class Entidad {
+    
+    public Entidad(){
+        super();
+    };
+    public abstract double pago();
     
 }
