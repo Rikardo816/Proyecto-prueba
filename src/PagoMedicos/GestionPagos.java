@@ -71,7 +71,7 @@ public class GestionPagos extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         cmbTipoEmp = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
-        seleccionEntidad = new javax.swing.JComboBox<>();
+        cmbEntidad = new javax.swing.JComboBox<>();
         btnGuardar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -240,7 +240,12 @@ public class GestionPagos extends javax.swing.JFrame {
 
         jLabel12.setText("Seleccinoe la Entidad:");
 
-        seleccionEntidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Medico", "Asistente de Enfermeria", "Empresa Proveedora" }));
+        cmbEntidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Medico", "Asistente de Enfermeria", "Empresa Proveedora" }));
+        cmbEntidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbEntidadActionPerformed(evt);
+            }
+        });
 
         btnGuardar.setText("Guardar");
 
@@ -260,7 +265,7 @@ public class GestionPagos extends javax.swing.JFrame {
                         .addGap(194, 194, 194)
                         .addComponent(jLabel12)
                         .addGap(39, 39, 39)
-                        .addComponent(seleccionEntidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cmbEntidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(77, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -273,7 +278,7 @@ public class GestionPagos extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(seleccionEntidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbEntidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -285,10 +290,71 @@ public class GestionPagos extends javax.swing.JFrame {
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
-        seleccionEntidad.getAccessibleContext().setAccessibleName("");
+        cmbEntidad.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmbEntidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEntidadActionPerformed
+        // TODO add your handling code here:
+        
+        //Habilitando Entradas Medico
+        if(cmbEntidad.getSelectedItem() == "Medico"){
+        txtNameMedic.setEnabled(true);
+        txtLastNameMedic.setEnabled(true);
+        txtCodeMedic.setEnabled(true);
+        txtTarifaMedic.setEnabled(true);
+        
+        //Desactivando entradas de Asistente
+        txtNameAsis.setEnabled(false);
+        txtLastNameAsis.setEnabled(false);
+        cmbJornadaAsis.setEnabled(false);
+        cmbNivelAsis.setEnabled(false);
+        
+        //Desactivando entradas de Empresa
+        txtRazonSocialEmp.setEnabled(false);
+        txtRucEmp.setEnabled(false);
+        cmbTipoEmp.setEnabled(false);        
+        }
+        
+        //Habilitando Entradas Asistente
+        if(cmbEntidad.getSelectedItem() == "Asistente de Enfermeria"){
+        txtNameAsis.setEnabled(true);
+        txtLastNameAsis.setEnabled(true);
+        cmbJornadaAsis.setEnabled(true);
+        cmbNivelAsis.setEnabled(true);
+
+        //Desactivando entradas de medico
+        txtNameMedic.setEnabled(false);
+        txtLastNameMedic.setEnabled(false);
+        txtCodeMedic.setEnabled(false);
+        txtTarifaMedic.setEnabled(false);
+
+        //Desactivando entradas de Empresa
+        txtRazonSocialEmp.setEnabled(false);
+        txtRucEmp.setEnabled(false);
+        cmbTipoEmp.setEnabled(false);        
+        }
+        
+        //Habilitando Entradas Empresa
+        if(cmbEntidad.getSelectedItem() == "Empresa Proveedora"){
+        txtRazonSocialEmp.setEnabled(true);
+        txtRucEmp.setEnabled(true);
+        cmbTipoEmp.setEnabled(true);
+
+         //Desactivando entradas de medico
+        txtNameMedic.setEnabled(false);
+        txtLastNameMedic.setEnabled(false);
+        txtCodeMedic.setEnabled(false);
+        txtTarifaMedic.setEnabled(false);
+        
+        //Desactivando entradas de Asistente
+        txtNameAsis.setEnabled(false);
+        txtLastNameAsis.setEnabled(false);
+        cmbJornadaAsis.setEnabled(false);
+        cmbNivelAsis.setEnabled(false);       
+        }
+    }//GEN-LAST:event_cmbEntidadActionPerformed
 
     /**
      * @param args the command line arguments
@@ -327,6 +393,7 @@ public class GestionPagos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JComboBox<String> cmbEntidad;
     private javax.swing.JComboBox<String> cmbJornadaAsis;
     private javax.swing.JComboBox<String> cmbNivelAsis;
     private javax.swing.JComboBox<String> cmbTipoEmp;
@@ -345,7 +412,6 @@ public class GestionPagos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JComboBox<String> seleccionEntidad;
     private javax.swing.JTextField txtCodeMedic;
     private javax.swing.JTextField txtLastNameAsis;
     private javax.swing.JTextField txtLastNameMedic;
