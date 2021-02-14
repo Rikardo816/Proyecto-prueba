@@ -22,6 +22,31 @@ public class Empresa extends Entidad {
         this.ruc = ruc;
     }
 
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setRazonSocial(String razonSocial) {
+        this.razonSocial = razonSocial;
+    }
+
+    public void setRuc(String ruc) {
+        this.ruc = ruc;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public String getRazonSocial() {
+        return razonSocial;
+    }
+
+    public String getRuc() {
+        return ruc;
+    }
+    
+
     @Override
     public double pago() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

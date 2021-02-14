@@ -14,26 +14,33 @@ public class GestionPagos extends javax.swing.JFrame {
     /**
      * Creates new form GestionPagos
      */
+    TablaPagos VentanaPagos = new TablaPagos();
     public GestionPagos() {
         initComponents();
         this.setLocationRelativeTo(null);
+        //VentanaPagos.setVisible(true);
+        cmbEntidad.setSelectedItem(null);
         
         //Desactivando entradas de medico
         txtNameMedic.setEnabled(false);
         txtLastNameMedic.setEnabled(false);
         txtCodeMedic.setEnabled(false);
         txtTarifaMedic.setEnabled(false);
+        txtHoras.setEnabled(false);
         
         //Desactivando entradas de Asistente
         txtNameAsis.setEnabled(false);
         txtLastNameAsis.setEnabled(false);
         cmbJornadaAsis.setEnabled(false);
         cmbNivelAsis.setEnabled(false);
+        cmbNivelAsis.setSelectedItem(null);
+        cmbJornadaAsis.setSelectedItem(null);
         
         //Desactivando entradas de Empresa
         txtRazonSocialEmp.setEnabled(false);
         txtRucEmp.setEnabled(false);
         cmbTipoEmp.setEnabled(false);
+        cmbTipoEmp.setSelectedItem(null);
     }
 
     /**
@@ -54,6 +61,8 @@ public class GestionPagos extends javax.swing.JFrame {
         txtCodeMedic = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtTarifaMedic = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        txtHoras = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtNameAsis = new javax.swing.JTextField();
@@ -73,6 +82,8 @@ public class GestionPagos extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         cmbEntidad = new javax.swing.JComboBox<>();
         btnGuardar = new javax.swing.JButton();
+        btnDatos = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,29 +97,34 @@ public class GestionPagos extends javax.swing.JFrame {
 
         jLabel5.setText("Tarifa por hora:");
 
+        jLabel13.setText("Horas:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtLastNameMedic, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNameMedic, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(185, 185, 185)
-                        .addComponent(jLabel4)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel13)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(txtLastNameMedic, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(txtNameMedic, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(185, 185, 185)
+                            .addComponent(jLabel4))))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtCodeMedic, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTarifaMedic, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTarifaMedic, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -126,7 +142,11 @@ public class GestionPagos extends javax.swing.JFrame {
                     .addComponent(txtLastNameMedic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(txtTarifaMedic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(txtHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Asistente de Enfermeria"));
@@ -248,6 +268,25 @@ public class GestionPagos extends javax.swing.JFrame {
         });
 
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
+
+        btnDatos.setText("Mostrar Datos");
+        btnDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDatosActionPerformed(evt);
+            }
+        });
+
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -268,9 +307,13 @@ public class GestionPagos extends javax.swing.JFrame {
                         .addComponent(cmbEntidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(77, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(94, 94, 94)
+                .addComponent(btnDatos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLimpiar)
+                .addGap(18, 18, 18)
                 .addComponent(btnGuardar)
-                .addGap(339, 339, 339))
+                .addGap(92, 92, 92))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,8 +329,11 @@ public class GestionPagos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnGuardar)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGuardar)
+                    .addComponent(btnDatos)
+                    .addComponent(btnLimpiar))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         cmbEntidad.getAccessibleContext().setAccessibleName("");
@@ -295,6 +341,21 @@ public class GestionPagos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Limpiar Gui
+        public void limpiarGui() {
+        txtNameMedic.setText(null);
+        txtLastNameMedic.setText(null);
+        txtCodeMedic.setText(null);
+        txtTarifaMedic.setText(null);
+        txtNameAsis.setText(null);
+        txtLastNameAsis.setText(null);
+        txtRazonSocialEmp.setText(null);
+        txtRucEmp.setText(null);
+        txtHoras.setText(null);
+        }
+
+    
+    
     private void cmbEntidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEntidadActionPerformed
         // TODO add your handling code here:
         
@@ -304,6 +365,7 @@ public class GestionPagos extends javax.swing.JFrame {
         txtLastNameMedic.setEnabled(true);
         txtCodeMedic.setEnabled(true);
         txtTarifaMedic.setEnabled(true);
+        txtHoras.setEnabled(true);
         
         //Desactivando entradas de Asistente
         txtNameAsis.setEnabled(false);
@@ -329,6 +391,7 @@ public class GestionPagos extends javax.swing.JFrame {
         txtLastNameMedic.setEnabled(false);
         txtCodeMedic.setEnabled(false);
         txtTarifaMedic.setEnabled(false);
+        txtHoras.setEnabled(false);
 
         //Desactivando entradas de Empresa
         txtRazonSocialEmp.setEnabled(false);
@@ -347,6 +410,7 @@ public class GestionPagos extends javax.swing.JFrame {
         txtLastNameMedic.setEnabled(false);
         txtCodeMedic.setEnabled(false);
         txtTarifaMedic.setEnabled(false);
+        txtHoras.setEnabled(false);
         
         //Desactivando entradas de Asistente
         txtNameAsis.setEnabled(false);
@@ -355,6 +419,67 @@ public class GestionPagos extends javax.swing.JFrame {
         cmbNivelAsis.setEnabled(false);       
         }
     }//GEN-LAST:event_cmbEntidadActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        // TODO add your handling code here:
+        limpiarGui();
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatosActionPerformed
+        // TODO add your handling code here:
+        //TablaPagos VentanaPagos = new TablaPagos();
+        VentanaPagos.setVisible(true);
+      
+    }//GEN-LAST:event_btnDatosActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+        //Guardar Los datos
+        if(cmbEntidad.getSelectedItem() == "Medico"){
+            String nombre = txtNameMedic.getText();
+            String apellido = txtLastNameMedic.getText();
+            String codigo = txtCodeMedic.getText();
+            double sueldo;
+            double tarifa = Double.parseDouble(txtTarifaMedic.getText());
+            int hora = Integer.parseInt(txtHoras.getText());
+            
+            Medico Medic = new Medico(nombre, apellido, codigo, tarifa, hora);
+            
+            System.out.println(Medic.getName());
+            System.out.println(Medic.getLastName());
+            System.out.println(Medic.pago());
+            //sueldo = Medic.pago();
+            
+            TablaPagos.modeloTabla.addRow(new Object[]{Medic.getName(), Medic.getLastName(), Medic.pago()});
+            
+            limpiarGui();
+
+        }
+        if(cmbEntidad.getSelectedItem() == "Asistente de Enfermeria"){
+            String nombre = txtNameAsis.getText();
+            String apellido = txtLastNameAsis.getText();
+            String jornada = cmbJornadaAsis.getSelectedItem().toString();
+            int nivel = Integer.parseInt(cmbNivelAsis.getSelectedItem().toString());
+            
+            Persona Asis = new AsisteteEnf(nombre, apellido, jornada, nivel);
+            
+            TablaPagos.modeloTabla.addRow(new Object[]{Asis.getName(), Asis.getLastName(), Asis.pago()});
+            
+            limpiarGui();
+        }
+        if(cmbEntidad.getSelectedItem() == "Empresa Proveedora"){
+            String razon = txtRazonSocialEmp.getText();
+            String ruc = txtRucEmp.getText();
+            String tipo = cmbTipoEmp.getSelectedItem().toString();
+            
+            Empresa Emp = new Empresa(razon, tipo, ruc);
+            System.out.println(Emp.getRazonSocial());
+            System.out.println(Emp.pago());
+            
+            TablaPagos.modeloTabla2.addRow(new Object[]{Emp.getRazonSocial(), Emp.getTipo(), Emp.pago()});
+            limpiarGui();
+        }
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -392,7 +517,9 @@ public class GestionPagos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDatos;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnLimpiar;
     private javax.swing.JComboBox<String> cmbEntidad;
     private javax.swing.JComboBox<String> cmbJornadaAsis;
     private javax.swing.JComboBox<String> cmbNivelAsis;
@@ -401,6 +528,7 @@ public class GestionPagos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -413,6 +541,7 @@ public class GestionPagos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField txtCodeMedic;
+    private javax.swing.JTextField txtHoras;
     private javax.swing.JTextField txtLastNameAsis;
     private javax.swing.JTextField txtLastNameMedic;
     private javax.swing.JTextField txtNameAsis;

@@ -44,20 +44,25 @@ public class AsisteteEnf extends Persona {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         double total = 0;
 
-        if(jornada == "m" && nivel == 1){
+        if(jornada == "Matutina" && nivel == 1){
             total = 450;
         }
-        if(jornada == "m" && nivel == 2){
+        if(jornada == "Matutina" && nivel == 2){
             total = 450 + 450*0.10;
         }
-        if(jornada == "v" && nivel == 1){
+        if(jornada == "Vespertina" && nivel == 1){
             total = 560;
         }
-        if(jornada == "v" && nivel == 2){
+        if(jornada == "Vespertina" && nivel == 2){
             total = 560 + 105;
         }
         
         return total;
+    }
+
+    @Override
+    public String toString() {
+        return "AsisteteEnf{" + "jornada=" + jornada + ", nivel=" + nivel + '}';
     }
     
    

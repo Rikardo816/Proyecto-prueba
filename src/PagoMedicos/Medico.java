@@ -65,6 +65,11 @@ public class Medico extends Persona {
         
         return total;
     }
+
+    @Override
+    public String toString() {
+        return "Medico{" + "codigo=" + codigo + ", tarifa=" + tarifa + ", horas=" + horas + '}';
+    }
     
     
 }
